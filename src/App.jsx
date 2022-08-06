@@ -141,14 +141,13 @@ function App() {
             <p className="text-2xl ">L:{Math.round(weather.list[0].main.temp_min)}°</p>
           </div>
         </div>
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-row justify-center gap-5 sm:gap-8">
           {weather.list.map((item, index) => {
             let hours = new Date(item.dt*1000)
             hours = Number(hours.getHours());
             if(hours === 12) {
               return <Card id={index} key={index}/>
             }
-            // console.log(index)
           })}
         </div>
         <div className="flex flex-row gap-8 mt-20">
