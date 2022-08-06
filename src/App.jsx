@@ -58,13 +58,61 @@ function App() {
   }, [dispatch])
 
 
-  let theme = "daytime";
+  let theme, weatherStatus = weather.list[0].weather[0].main;
   if (bgTheme === "daytime") {
-    theme = classNames("bg-no-repeat bg-center bg-cover bg-[url('./src/assets/bg-daytime.png')]")
+    switch(weatherStatus) {
+      case 'Clouds':
+        theme = classNames("bg-[url('./src/assets/bg-cloud-daytime.png')]");
+        break;
+      case 'Clear':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Snow':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Rain':
+        theme = classNames("bg-[url('./src/assets/bg-rain-daytime.webp')]");
+        break;
+      case 'Drizzle':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Thunderstorm':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Mist':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Smoke':
+        theme = classNames("bg-[url('./src/assets/bg-smoke.png')]");
+        break;
+      case 'Haze':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Dust':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Fog':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Sand':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Ash':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Squall':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+      case 'Tornado':
+        theme = classNames("bg-[url('./src/assets/bg-daytime.png')]");
+        break;
+    }
   } else if (bgTheme === "sunrise") {
-    theme = classNames("")
+    theme = classNames("bg-[url('./src/assets/bg-sunrise.webp')]")
+  } else if (bgTheme === "sunset") {
+    theme = classNames("bg-[url('./src/assets/bg-sunset.webp')]")
   } else if (bgTheme === "night") {
-    theme = classNames("bg-no-repeat bg-center bg-cover bg-[url('./src/assets/bg-night.jpg')]")
+    theme = classNames("bg-[url('./src/assets/bg-night.png')]")
   }
 
   let mainClass = classNames('w-full h-[100vh] absolute', theme)
