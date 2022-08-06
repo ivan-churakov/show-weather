@@ -8,6 +8,8 @@ function App() {
   const weather = useSelector(state => state.counter.weather);
   const bgTheme = useSelector(state => state.counter.bgImage);
   const dispatch = useDispatch();
+  const [sunriseTime, setSunriseTime] = useState();
+  const [sunsetTime, setSunsetTime] = useState();
 
   function getPosition() {
     return new Promise((res, rej) => {
@@ -15,7 +17,7 @@ function App() {
     });
   }
 
-  let currentDate, sunriseTime, sunsetTime;
+  let currentDate;
 
   function getTheme(hours, sunrise, sunset) {
     if (hours > sunrise && hours < 10) {
@@ -45,14 +47,14 @@ function App() {
         console.log(item.payload);
 
         currentDate = new Date(weather.list[0].dt * 1000);
-        sunriseTime = new Date(weather.city.sunrise * 1000);
-        sunsetTime = new Date(weather.city.sunset * 1000);
+        let sunrise = new Date(weather.city.sunrise * 1000);
+        let sunset = new Date(weather.city.sunset * 1000);
 
         currentDate = Number(currentDate.getUTCHours());
-        sunriseTime = Number(sunriseTime.getHours());
-        sunsetTime = Number(sunsetTime.getHours());
+        sunrise = Number(sunrise.getHours());
+        sunset = Number(sunset.getHours());
         // console.log(currentDate + " " + sunriseTime + " " + sunsetTime);
-        getTheme(currentDate, sunriseTime, sunsetTime);
+        getTheme(currentDate, sunrise, sunset);
       })
     })
   }, [dispatch])
@@ -115,7 +117,16 @@ function App() {
     theme = classNames("bg-[url('./src/assets/bg-night.png')]")
   }
 
-  let mainClass = classNames('w-full h-[100vh] absolute', theme)
+  let mainClass = classNames('w-full h-[200vh] absolute bg-fixed bg-no-repeat bg-center bg-cover', theme)
+
+
+  useEffect(() => {
+    let sunriseR = new Date(weather.city.sunrise * 1000);
+    let sunsetR = new Date(weather.city.sunset * 1000);
+
+    setSunriseTime(String(sunriseR.getHours() + ":" + sunriseR.getMinutes()))
+    setSunsetTime(String(sunsetR.getHours() + ":" + sunsetR.getMinutes()))
+  })
 
 
   return (
@@ -139,6 +150,19 @@ function App() {
             }
             // console.log(index)
           })}
+        </div>
+        <div className="flex flex-row gap-8 mt-20">
+          <div className="flex flex-col text-white bg-white/10 drop-shadow-2xl backdrop-blur-md rounded-2xl">
+            <div className="flex flex-col py-5 px-10 pr-20">
+              <p className="text-xl">Sunrise</p>
+              <p className="text-5xl font-light">{sunriseTime}</p>
+            </div>
+            <hr className="w-full text-white border-t-2 opacity-40"/>
+            <div className="flex flex-col py-5 px-10 pr-20">
+              <p className="text-xl">Sunset</p>
+              <p className="text-5xl font-light">{sunsetTime}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
