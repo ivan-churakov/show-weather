@@ -70,7 +70,7 @@ export const fetchWeather = createAsyncThunk(
     const {lat, lon} = position;
     let apiKey = "8daf5067b5fa9cb2b12b905a3be2989a";
     // let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
-    let url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=ru&units=metric&appid=${apiKey}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=ru&units=metric&appid=${apiKey}`;
     const response = await fetch(url);
     const data = await response.json();
     return data;
