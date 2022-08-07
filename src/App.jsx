@@ -66,6 +66,8 @@ function App() {
         getTheme(currentDate, sunrise, sunset);
         setDeg(`rotate-[${weather.list[0].wind.deg}deg]`);
       })
+    }).catch((error) => {
+      alert("Вы запретили доступ к местоположению");
     })
   }, [dispatch])
 
