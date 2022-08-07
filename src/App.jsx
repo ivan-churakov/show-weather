@@ -65,7 +65,6 @@ function App() {
         // console.log(currentDate + " " + sunriseTime + " " + sunsetTime);
         getTheme(currentDate, sunrise, sunset);
         setDeg(`rotate-[${weather.list[0].wind.deg}deg]`);
-        console.log(deg)
       })
     })
   }, [dispatch])
