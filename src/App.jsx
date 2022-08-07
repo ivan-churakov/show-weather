@@ -127,7 +127,7 @@ function App() {
     theme = classNames("bg-[url('./src/assets/bg-night.png')]")
   }
 
-  let mainClass = classNames('w-full h-fit absolute bg-fixed bg-no-repeat bg-center bg-cover pb-20', theme)
+  let mainClass = classNames('w-full h-fit absolute bg-fixed bg-no-repeat bg-center bg-cover pb-24', theme)
 
 
   useEffect(() => {
