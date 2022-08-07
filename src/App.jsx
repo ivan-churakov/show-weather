@@ -3,6 +3,15 @@ import {fetchWeather, switchBg} from "./store/features/slices/counterSlice";
 import {useEffect, useState} from "react";
 import classNames from "classnames";
 import {Card} from "./components/Card";
+import sunriseIcon from './assets/sunrise-icon.png'
+import sunsetIcon from './assets/sunset-icon.png'
+import windIcon from './assets/wind-icon.png'
+import cloudIcon from './assets/cloud-icon.png'
+import visibilityIcon from './assets/visibility-icon.png'
+import precipitationIcon from './assets/precipitation-icon.png'
+import atmPressureIcon from './assets/atm-pressure-icon.png'
+import compassIcon from './assets/compass.png'
+import arrowIcon from './assets/arrow.png'
 
 function App() {
   const weather = useSelector(state => state.counter.weather);
@@ -44,7 +53,7 @@ function App() {
       }
 
       dispatch(fetchWeather(position)).then((item) => {
-        console.log(item.payload);
+        // console.log(item.payload);
 
         currentDate = new Date(weather.list[0].dt * 1000);
         let sunrise = new Date(weather.city.sunrise * 1000);
@@ -55,6 +64,8 @@ function App() {
         sunset = Number(sunset.getHours());
         // console.log(currentDate + " " + sunriseTime + " " + sunsetTime);
         getTheme(currentDate, sunrise, sunset);
+        setDeg(`rotate-[${weather.list[0].wind.deg}deg]`);
+        console.log(deg)
       })
     })
   }, [dispatch])
@@ -117,7 +128,7 @@ function App() {
     theme = classNames("bg-[url('./src/assets/bg-night.png')]")
   }
 
-  let mainClass = classNames('w-full h-[200vh] absolute bg-fixed bg-no-repeat bg-center bg-cover', theme)
+  let mainClass = classNames('w-full h-fit absolute bg-fixed bg-no-repeat bg-center bg-cover pb-20', theme)
 
 
   useEffect(() => {
@@ -143,7 +154,7 @@ function App() {
             <p className="text-2xl ">L:{Math.round(weather.list[0].main.temp_min)}°</p>
           </div>
         </div>
-        <div className="flex flex-row justify-center gap-5 sm:gap-8">
+        <div className="flex flex-row justify-center gap-4 sm:gap-8">
           {weather.list.map((item, index) => {
             let hours = new Date(item.dt*1000)
             hours = Number(hours.getHours());
