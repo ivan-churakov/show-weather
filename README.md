@@ -1,6 +1,7 @@
 <p align="center">
  Weather app
 </p>
+
 ## Description
 
 I get all the indicators in the pictures from the api https://openweathermap.org/
