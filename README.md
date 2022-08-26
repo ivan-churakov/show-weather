@@ -1,6 +1,4 @@
-<p align="center">
- Weather app
-</p>
+<a href="https://wampi.ru/image/RQRiVGa"><img src="https://ie.wampi.ru/2022/08/26/Weather-1.png" alt="Weather-1.png" border="0"></a>
 
 ## Description
 
