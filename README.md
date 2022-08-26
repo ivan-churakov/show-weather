@@ -1,7 +1,7 @@
-Приложение погоды.
 <p align="center">
-  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+ Weather app
 </p>
 
-![imaged2eeb4e8797a084a.png](https://ie.wampi.ru/2022/08/26/imaged2eeb4e8797a084a.png)
+I get all the indicators in the pictures from the api https://openweathermap.org/
+![night](https://ie.wampi.ru/2022/08/26/imaged2eeb4e8797a084a.png)
+![imageafae10c1a0cb525a.png](https://im.wampi.ru/2022/08/26/imageafae10c1a0cb525a.png)
