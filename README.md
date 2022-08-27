@@ -1,4 +1,4 @@
-<a href="https://wampi.ru/image/RQRiVGa"><img src="https://ie.wampi.ru/2022/08/26/Weather-1.png" alt="Weather-1.png" border="0"></a>
+<a href="https://wampi.ru/image/RQYK7Hc"><img src="https://ie.wampi.ru/2022/08/27/Weather-2.png" alt="Weather-2.png" border="0"></a>
 
 ## Description
 
