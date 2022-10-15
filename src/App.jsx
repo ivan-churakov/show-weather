@@ -53,7 +53,6 @@ function App() {
       }
 
       dispatch(fetchWeather(position)).then((item) => {
-        // console.log(item.payload);
 
         currentDate = new Date(weather.list[0].dt * 1000);
         let sunrise = new Date(weather.city.sunrise * 1000);
