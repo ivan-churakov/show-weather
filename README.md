@@ -2,7 +2,7 @@
 
 ## Description
 
-I get all the indicators in the pictures from the api https://openweathermap.org/.
+I get all the indicators in the pictures from the api https://openweathermap.org/
 
 ## Picture
 
